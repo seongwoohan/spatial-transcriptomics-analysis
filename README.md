@@ -6,10 +6,11 @@
 
 
 # Setup
-Run the following command in src to extract the region of interest in the image:
+Run the following command in src to extract the region of interest (roi) in the image:
 
 python every_breast_tumor.py
 
 
 # Data
-Raw data from https://support.10xgenomics.com/spatial-gene-expression/datasets/1.0.0/V1_Breast_Cancer_Block_A_Section_1. The pre-processing script is included.
+We included sample pre-processed roi image for covenience. Raw data from https://support.10xgenomics.com/spatial-gene-expression/datasets/1.0.0/V1_Breast_Cancer_Block_A_Section_1. 
+The pre-processing script is included.
