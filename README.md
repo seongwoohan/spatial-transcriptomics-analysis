@@ -1,6 +1,6 @@
 # Introduction
 
-This repository contains software and pre-processed data for analyzing spatical transcriptomics.
+This repository contains software and pre-processed data for analyzing spatial transcriptomics.
 
 # Requirement
 
