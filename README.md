@@ -10,7 +10,7 @@ This repository contains software and pre-processed data for analyzing spatial t
 
 
 # Setup
-Run the following command in src to extract the region of interest (roi) in the image:
+Run the following command in src to extract the region of interest in the image:
 
 python every_breast_tumor.py
 
