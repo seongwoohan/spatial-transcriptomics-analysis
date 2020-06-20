@@ -30,27 +30,24 @@ spot_radius = int(spot_diameter_fullres/2)
 # 'a' indicates all 3813 images we want - it takes some time and memory to run all of them
 # try to run it with small number e.g. range(2) or range(3) to see how the code is working
 a = len(new_x) 
-# try with 100 images
+# show progress bar
 for i in tqdm(range(a)):
-    sleep(0.01)    
-    # pick random number under 3813
-    random_num = np.random.randint(len(new_x))
+    sleep(0.1)    
     # find random x,y coordinates in tissue_positions_list.csv
     first_x = new_x[random_num]
     first_y = new_y[random_num]
+    print()
 
     # width
-    x_label = int(first_x)
     print('x_label:', x_label)
     # height
-    y_label = int(first_y)
     print('y_label:', y_label)
     # radius
     rad = spot_radius
     print('radius:',rad)
 
     # find x,y coordinates corresponding to the 'gene' name in tissue_positions_list.csv 
-    a = position[(position['x_label']==first_x) & (position['y_label']==first_y)]['barcode']
+    a = re_position[(re_position['x_label']==x_label) & (re_position['y_label']==y_label)]['barcode']
     b = a.tolist()[0]
    
     # file directory
@@ -69,8 +66,8 @@ for i in tqdm(range(a)):
 
     # square image
     roi_square = img[y_label-rad:y_label+rad, x_label-rad:x_label+rad]
-    cv2.imwrite(square_path + square_file_name, roi_square)
     plt.imshow(roi_square)
+    cv2.imwrite(square_path + square_file_name, roi_square)
 
     # mask and extract circle image
     circle_img = cv2.circle(img, center = (x_label, y_label), radius = rad, 
@@ -91,11 +88,13 @@ for i in tqdm(range(a)):
 
     # circle image
     roi_circle = circle_img[y_label-rad:y_label+rad, x_label-rad:x_label+rad]
-    cv2.imwrite(circle_path  + circle_file_name, roi_circle)
     plt.imshow(roi_circle)
+    cv2.imwrite(circle_path  + circle_file_name, roi_circle)
 
     # cropped image
     roi_cropped = cropped_img[y_label-rad:y_label+rad, x_label-rad:x_label+rad]
-    cv2.imwrite(cropped_path + cropped_file_name, roi_cropped)    
     plt.imshow(roi_cropped)
+    cv2.imwrite(cropped_path + cropped_file_name, roi_cropped)    
+
+    # no axis
     plt.axis('off')
