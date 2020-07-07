@@ -32,10 +32,10 @@ spot_radius = int(spot_diameter_fullres/2)
 a = len(new_x) 
 # show progress bar
 for i in tqdm(range(a)):
-    sleep(0.1)    
+    sleep(0.001)    
     # find random x,y coordinates in tissue_positions_list.csv
-    first_x = new_x[random_num]
-    first_y = new_y[random_num]
+    x_label = new_x[index]
+    y_label = new_y[index]
     print()
 
     # width
