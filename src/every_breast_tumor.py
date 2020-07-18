@@ -31,7 +31,7 @@ spot_radius = int(spot_diameter_fullres/2)
 # try to run it with small number e.g. range(2) or range(3) to see how the code is working
 a = len(new_x) 
 # show progress bar
-for i in tqdm(range(a)):
+for index in tqdm(range(a)):
     sleep(0.001)    
     # find random x,y coordinates in tissue_positions_list.csv
     x_label = new_x[index]
